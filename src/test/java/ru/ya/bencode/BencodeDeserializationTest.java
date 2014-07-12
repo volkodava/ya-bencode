@@ -14,9 +14,9 @@ public class BencodeDeserializationTest {
 
     @Test
     public void bencodeDeserializationTest() throws BencodeStreamException {
-        assertThat(testHelper.parse("4:spam"), hasItem("spam"));
-        assertThat(testHelper.parse("i42e"), hasItem(42));
-        assertThat(testHelper.parse("i-42e"), hasItem(-42));
+        assertThat(testHelper.parse("4:spam").get(0), equalTo((Object) "spam"));
+        assertThat(testHelper.parse("i42e").get(0), equalTo((Object) new Integer(42)));
+        assertThat(testHelper.parse("i-42e").get(0), equalTo((Object) new Integer(-42)));
         assertThat((List<Object>) testHelper.parse("l4:spami42ee").get(0), contains((Object) "spam", (Object) 42));
         assertThat((Map<Object, Object>) testHelper.parse("d3:bar4:spam3:fooi42ee").get(0), hasEntry((Object) "bar", (Object) "spam"));
         assertThat((Map<Object, Object>) testHelper.parse("d3:bar4:spam3:fooi42ee").get(0), hasEntry((Object) "foo", (Object) 42));
