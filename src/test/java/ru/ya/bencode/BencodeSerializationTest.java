@@ -9,6 +9,8 @@ import java.util.Map;
 import org.junit.Test;
 import ru.ya.bencode.core.BencodeTestHelper;
 import ru.ya.bencode.stream.BencodeStreamException;
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
 
 public class BencodeSerializationTest {
 
@@ -16,15 +18,15 @@ public class BencodeSerializationTest {
 
     @Test
     public void bencodeSerializationTest() throws BencodeStreamException {
-        testHelper.writeString("spam");
-        testHelper.writeInt(42);
-        testHelper.writeInt(-42);
+        assertThat(testHelper.writeString("spam"), equalTo("4:spam"));
+        assertThat(testHelper.writeInt(42), equalTo("i42e"));
+        assertThat(testHelper.writeInt(-42), equalTo("i-42e"));
         List<Object> list = Arrays.<Object>asList("spam", 42);
-        testHelper.writeList(list);
+        assertThat(testHelper.writeList(list), equalTo("l4:spami42ee"));
         Map<Object, Object> map = new LinkedHashMap<Object, Object>();
         map.put("bar", "spam");
         map.put("foo", 42);
-        testHelper.writeMap(map);
+        assertThat(testHelper.writeMap(map), equalTo("d3:bar4:spam3:fooi42ee"));
     }
 
     @Test
