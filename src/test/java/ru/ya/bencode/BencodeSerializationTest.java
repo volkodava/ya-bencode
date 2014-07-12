@@ -46,7 +46,7 @@ public class BencodeSerializationTest {
         write(complexMap3);
     }
 
-    private void write(Object data) throws BencodeStreamException {
+    private String write(Object data) throws BencodeStreamException {
         StringWriter writer = new StringWriter();
 
         //
@@ -64,10 +64,10 @@ public class BencodeSerializationTest {
         // Close the BencodeStreamWriter to free up resources
         bencoder.close();
 
-        System.out.println("Serialized: " + writer.getBuffer().toString());
+        return writer.getBuffer().toString();
     }
 
-    private void writeString(String data) throws BencodeStreamException {
+    private String writeString(String data) throws BencodeStreamException {
         StringWriter writer = new StringWriter();
 
         //
@@ -85,10 +85,10 @@ public class BencodeSerializationTest {
         // Close the BencodeStreamWriter to free up resources
         bencoder.close();
 
-        System.out.println("Serialized: " + writer.getBuffer().toString());
+        return writer.getBuffer().toString();
     }
 
-    private void writeInt(int data) throws BencodeStreamException {
+    private String writeInt(int data) throws BencodeStreamException {
         StringWriter writer = new StringWriter();
 
         //
@@ -106,10 +106,10 @@ public class BencodeSerializationTest {
         // Close the BencodeStreamWriter to free up resources
         bencoder.close();
 
-        System.out.println("Serialized: " + writer.getBuffer().toString());
+        return writer.getBuffer().toString();
     }
 
-    private void writeList(List<Object> data) throws BencodeStreamException {
+    private String writeList(List<Object> data) throws BencodeStreamException {
         StringWriter writer = new StringWriter();
 
         //
@@ -127,10 +127,10 @@ public class BencodeSerializationTest {
         // Close the BencodeStreamWriter to free up resources
         bencoder.close();
 
-        System.out.println("Serialized: " + writer.getBuffer().toString());
+        return writer.getBuffer().toString();
     }
 
-    private void writeMap(Map<Object, Object> data) throws BencodeStreamException {
+    private String writeMap(Map<Object, Object> data) throws BencodeStreamException {
         StringWriter writer = new StringWriter();
 
         //
@@ -148,6 +148,6 @@ public class BencodeSerializationTest {
         // Close the BencodeStreamWriter to free up resources
         bencoder.close();
 
-        System.out.println("Serialized: " + writer.getBuffer().toString());
+        return writer.getBuffer().toString();
     }
 }
