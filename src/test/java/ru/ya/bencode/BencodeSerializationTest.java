@@ -34,19 +34,19 @@ public class BencodeSerializationTest {
         List<Object> complexList1 = new ArrayList<Object>();
         complexList1.add("a");
         complexList1.add(Arrays.<Object>asList("a1", "a2"));
-        testHelper.write(complexList1);
+        assertThat(testHelper.write(complexList1), equalTo("l1:al2:a12:a2ee"));
         Map<Object, Object> complexMap1 = new LinkedHashMap<Object, Object>();
         complexMap1.put("a", Collections.singletonMap("a1", "a2"));
-        testHelper.write(complexMap1);
+        assertThat(testHelper.write(complexMap1), equalTo("d1:ad2:a12:a2ee"));
         Map<Object, Object> complexMap2 = new LinkedHashMap<Object, Object>();
         complexMap2.put("a", Collections.singletonMap("a1", Collections.singletonList("aaaaaaaaaa")));
-        testHelper.write(complexMap2);
+        assertThat(testHelper.write(complexMap2), equalTo("d1:ad2:a1l10:aaaaaaaaaaeee"));
         List<Object> complexList2 = new ArrayList<Object>();
         complexList2.add("a");
         complexList2.add(Collections.singletonMap("a1", Collections.singletonList("aaaaaaaaaa")));
-        testHelper.write(complexList2);
+        assertThat(testHelper.write(complexList2), equalTo("l1:ad2:a1l10:aaaaaaaaaaeee"));
         Map<Object, Object> complexMap3 = new LinkedHashMap<Object, Object>();
         complexMap3.put("a", Collections.singletonMap("a1", Collections.singletonMap("a2", "a3")));
-        testHelper.write(complexMap3);
+        assertThat(testHelper.write(complexMap3), equalTo("d1:ad2:a1d2:a22:a3eee"));
     }
 }
