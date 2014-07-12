@@ -4,6 +4,9 @@ package ru.ya.bencode.stream;
  * The base exception for unexpected processing errors. This Exception class is
  * used to report well-formedness errors as well as unexpected processing
  * conditions.
+ *
+ * @version 1.0
+ * @author Anatolii Volkodav
  */
 public class BencodeStreamException extends Exception {
 

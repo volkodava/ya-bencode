@@ -5,6 +5,9 @@ import org.apache.commons.lang3.Validate;
 
 /**
  * Defines an implementation of a factory for getting BencodeStreamReader.
+ *
+ * @version 1.0
+ * @author Anatolii Volkodav
  */
 public class BencodeInputFactory {
 

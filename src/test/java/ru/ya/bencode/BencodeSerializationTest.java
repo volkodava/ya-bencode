@@ -12,6 +12,12 @@ import ru.ya.bencode.stream.BencodeStreamException;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
+/**
+ * Defines the tests to cover serialization cases.
+ *
+ * @version 1.0
+ * @author Anatolii Volkodav
+ */
 public class BencodeSerializationTest {
 
     BencodeTestHelper testHelper = new BencodeTestHelper();

@@ -10,6 +10,12 @@ import java.util.NoSuchElementException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Defines the Bencode stream reader class.
+ *
+ * @version 1.0
+ * @author Anatolii Volkodav
+ */
 public class BencodeStreamReader {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
@@ -35,7 +41,7 @@ public class BencodeStreamReader {
         try {
             value = readNextValue();
         } catch (IOException ex) {
-            throw new BencodeStreamException("Can't check the next character from the stream", ex);
+            throw new BencodeStreamException("Can't check for next available object from the stream", ex);
         }
         return value != null;
     }

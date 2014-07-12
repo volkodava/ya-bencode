@@ -8,6 +8,12 @@ import java.util.Map.Entry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Defines the Bencode stream writer class.
+ *
+ * @version 1.0
+ * @author Anatolii Volkodav
+ */
 public class BencodeStreamWriter {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
@@ -43,7 +49,7 @@ public class BencodeStreamWriter {
             logger.debug("Writing data as Map");
             writeMap((Map) data);
         } else {
-            throw new BencodeStreamException("Object type not supported: " + data.getClass().getName());
+            throw new IllegalArgumentException("Object type not supported: " + data.getClass().getName());
         }
     }
 

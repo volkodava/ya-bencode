@@ -8,6 +8,12 @@ import static org.hamcrest.Matchers.*;
 import org.junit.Test;
 import ru.ya.bencode.stream.BencodeStreamException;
 
+/**
+ * Defines the tests to cover deserialization cases.
+ *
+ * @version 1.0
+ * @author Anatolii Volkodav
+ */
 public class BencodeDeserializationTest {
 
     BencodeTestHelper testHelper = new BencodeTestHelper();
