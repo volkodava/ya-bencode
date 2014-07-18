@@ -50,13 +50,18 @@ public class BencodeStreamReader {
      * Get next parsing object - a processor return the current parse object.
      *
      * @return the current parse object
-     * @throws NoSuchElementException if this is called when hasNext() returns
-     * false
+     * @throws NoSuchElementException when no elements found
      * @throws BencodeStreamException if there is an error processing the
      * underlying Bencode source
      */
     public Object next() throws BencodeStreamException {
-        return value;
+        Object returnValue = value;
+        if (returnValue == null) {
+            throw new NoSuchElementException("No elements found.");
+        }
+        value = null;
+
+        return returnValue;
     }
 
     /**
